@@ -1,29 +1,116 @@
 <!DOCTYPE html>
 <html lang="ja">
-
 <head>
-    <meta charset="UTF-8">
-    <title>ぷらっとプラン</title>
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+  <title>映画・本の覚書</title>
+  <link rel="stylesheet" href="css/style.css" />
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
 </head>
 
-
 <body>
-  <h1>🚶‍♀️ ぷらっとプラン</h1>
-  <p>気分に合わせて、散歩に出かけましょう！</p>
 
-  <h3>気分を選んでください：</h3>
-  <button class="mood" data-mood="nature">🌿 自然</button>
-  <button class="mood" data-mood="town">🏘️ 街歩き</button>
+  <header class="header">
+    <nav class="nav">
+      <ul class="nav-list">
+        <li class="nav-item"><a href="#movie" class="nav-link">映画</a></li>
+        <li class="nav-item"><a href="#books" class="nav-link">本</a></li>
+      </ul>
+    </nav>
+  </header>
 
-  <div id="output"></div>
 
-  <h3>📜 保存済みプラン</h3>
-  <button id="clearPlans">🗑️ 履歴をすべて削除</button>
+  <section class="hero">
+    <div class="hero-image">
+      <div class="hero-text">
+        <h1 class="hero-title">私の書評日記</h1>
+        <h2 class="hero-subtitle">あの時、あの頃の感性をそのまま記録する</h2>
+      </div>
+    </div>
+  </section>
 
-  <div id="saved"></div>
+  <!-- 映画-->
+  <section class="movie-boxes" id="movie">
+    <h3 class="section-title">映画と海外ドラマ</h3>
+    <h3 class="section-subtitle">ムーディな大人の恋に酔ったあの映画は？</h3>
+    <div class="movie-content">
+      <div class="movie-image-box">
+        <img src="img/movie.png" alt="映画の画像" class="movie-image" />
+      </div>
+      <div class="movie-form-box">
+        <div class="form-row">
+          <label for="movie-title" class="form-label">映画の題名</label>
+          <input type="text" id="movie-title" class="form-input" />
+        </div>
+        <div class="form-row">
+          <label for="movie-genre" class="form-label">ジャンル</label>
+          <select id="movie-genre" class="form-select">
+            <option value="action">アクション</option>
+            <option value="love">恋愛</option>
+            <option value="comedy">コメディ</option>
+            <option value="true">実話</option>
+            <option value="family">ファミリー</option>
+            <option value="horror">ホラー</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="movie-impression" class="form-label">感想メモ</label>
+          <textarea id="movie-impression" rows="6" class="form-input" placeholder="感じた感想を書き留めておきましょう"></textarea>
+        </div>
+        <button id="save-movie" class="save-button">映画を保存</button>
 
-  <script src="script.js"></script>
+      <ul id="movie-search-result" class="saved-list"></ul>
+      <div class="search-area">
+        <h4>映画検索</h4>
+        <input type="text" id="movie-search" class="form-input" placeholder="タイトル・ジャンル・感想から検索">
+        <ul id="movie-search-result" class="search-result"></ul>
+      </div>
+
+
+    </div>
+  </section>
+
+  <!-- 本 -->
+  <section class="book-boxes" id="books">
+    <h3 class="section-title">本</h3>
+    <h3 class="section-subtitle">夜通し読み耽ったあの本は？</h3>
+    <div class="movie-content">
+      <div class="book-image-box">
+        <img src="img/book.png" alt="本の画像" class="book-image" />
+      </div>
+      <div class="book-form-box">
+        <div class="form-row">
+          <label for="book-title" class="form-label">本の題名</label>
+          <input type="text" id="book-title" class="form-input" />
+        </div>
+        <div class="form-row">
+          <label for="book-genre" class="form-label">ジャンル</label>
+          <select id="book-genre" class="form-select">
+            <option value="novel">小説</option>
+            <option value="essay">エッセイ</option>
+            <option value="biography">伝記</option>
+            <option value="history">歴史物</option>
+            <option value="business">ビジネス書</option>
+          </select>
+        </div>
+        <div class="form-row">
+          <label for="book-impression" class="form-label">感想メモ</label>
+          <textarea id="book-impression" rows="6" class="form-input" placeholder="感じた感想を書き留めておきましょう"></textarea>
+        </div>
+        <button id="save-book" class="save-button">本を保存</button>
+
+      <ul id="book-search-result" class="saved-list"></ul>
+      <div class="search-area">
+        <h4>本検索</h4>
+        <input type="text" id="book-search" class="form-input" placeholder="タイトル・ジャンル・感想から検索">
+        <ul id="book-search-result" class="search-result"></ul>
+      </div>
+
+    </div>
+  </section>
+
+
+  <script src="js/main.js"></script>
 </body>
 </html>
